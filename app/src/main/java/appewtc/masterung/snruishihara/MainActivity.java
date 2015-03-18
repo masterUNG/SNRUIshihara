@@ -1,9 +1,11 @@
 package appewtc.masterung.snruishihara;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RadioButton;
@@ -25,7 +27,37 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //Initial Widget
+        initialWidget();
+
+        //Button Controller
+        buttonController();
+
     }   // onCreate
+
+    private void buttonController() {
+        btnAnswer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //Sound Effect
+                MediaPlayer objMediaPlayer = MediaPlayer.create(getBaseContext(), R.raw.effect_btn_long);
+                objMediaPlayer.start();
+            }   // event
+        });
+    }
+
+    private void initialWidget() {
+        txtQuestion = (TextView) findViewById(R.id.textView2);
+        imvIshihara = (ImageView) findViewById(R.id.imageView);
+        ragChoice = (RadioGroup) findViewById(R.id.ragChoice);
+        radChoice1 = (RadioButton) findViewById(R.id.radioButton);
+        radChoice2 = (RadioButton) findViewById(R.id.radioButton2);
+        radChoice3 = (RadioButton) findViewById(R.id.radioButton3);
+        radChoice4 = (RadioButton) findViewById(R.id.radioButton4);
+        btnAnswer = (Button) findViewById(R.id.button);
+    }
 
 
     @Override
