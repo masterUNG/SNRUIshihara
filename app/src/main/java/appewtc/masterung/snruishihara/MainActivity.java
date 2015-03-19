@@ -48,7 +48,7 @@ public class MainActivity extends ActionBarActivity {
                 MediaPlayer objMediaPlayer = MediaPlayer.create(getBaseContext(), R.raw.effect_btn_shut);
                 objMediaPlayer.start();
 
-
+                //setUp intRadio
 
             }   // event
         });
