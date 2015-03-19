@@ -145,6 +145,9 @@ public class MainActivity extends ActionBarActivity {
             //Check Times
             checkTimes();
 
+            //Clear Check
+            ragChoice.clearCheck();
+
         }
 
     }
@@ -206,14 +209,16 @@ public class MainActivity extends ActionBarActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch (item.getItemId()) {
+            case R.id.itemAboutMe:
+                Intent objIntent = new Intent(MainActivity.this, AboutMeActivity.class);
+                startActivity(objIntent);
+                break;
+            case R.id.itemHowTo:
+                Intent myIntent = new Intent(MainActivity.this, HowToUseActivity.class);
+                startActivity(myIntent);
+                break;
         }
 
         return super.onOptionsItemSelected(item);
