@@ -22,7 +22,7 @@ public class MainActivity extends ActionBarActivity {
     private RadioGroup ragChoice;
     private RadioButton radChoice1, radChoice2, radChoice3, radChoice4;
     private Button btnAnswer;
-    private int intRadio, intIndex;
+    private int intRadio, intIndex, intScore, intUserChoose[], intAnswerTrue[];
     private MyModel objMyModel;
 
     @Override
@@ -139,6 +139,9 @@ public class MainActivity extends ActionBarActivity {
 
         } else {
 
+            //Check Score
+            checkScore();
+
             //Check Times
             checkTimes();
 
@@ -146,12 +149,26 @@ public class MainActivity extends ActionBarActivity {
 
     }
 
+    private void checkScore() {
+
+        intAnswerTrue = new int[]{1, 2, 3, 1, 2, 3, 1, 2, 4, 4};
+        intUserChoose = new int[10];
+
+        intUserChoose[intIndex] = intRadio;
+        if (intUserChoose[intIndex] == intAnswerTrue[intIndex]) {
+            intScore++;
+        }
+
+    }
+
+
     private void checkTimes() {
 
         if (intIndex == 9) {
 
             //Intent to ShowScore
             Intent objIntent = new Intent(MainActivity.this, ShowScoreActivity.class);
+            objIntent.putExtra("Score", intScore);
             startActivity(objIntent);
             finish();
 
