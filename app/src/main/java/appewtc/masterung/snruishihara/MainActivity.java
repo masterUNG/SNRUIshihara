@@ -47,6 +47,9 @@ public class MainActivity extends ActionBarActivity {
                 //Sound Effect
                 MediaPlayer objMediaPlayer = MediaPlayer.create(getBaseContext(), R.raw.effect_btn_shut);
                 objMediaPlayer.start();
+
+
+
             }   // event
         });
     }
