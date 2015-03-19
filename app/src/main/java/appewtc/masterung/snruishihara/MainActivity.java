@@ -21,6 +21,7 @@ public class MainActivity extends ActionBarActivity {
     private RadioGroup ragChoice;
     private RadioButton radChoice1, radChoice2, radChoice3, radChoice4;
     private Button btnAnswer;
+    private int intRadio;
 
 
     @Override
@@ -49,6 +50,23 @@ public class MainActivity extends ActionBarActivity {
                 objMediaPlayer.start();
 
                 //setUp intRadio
+                switch (checkedId) {
+                    case R.id.radioButton:
+                        intRadio = 1;
+                        break;
+                    case R.id.radioButton2:
+                        intRadio = 2;
+                        break;
+                    case R.id.radioButton3:
+                        intRadio = 3;
+                        break;
+                    case R.id.radioButton4:
+                        intRadio = 4;
+                        break;
+                    default:
+                        intRadio = 0;
+                        break;
+                }   // switch
 
             }   // event
         });
@@ -62,8 +80,25 @@ public class MainActivity extends ActionBarActivity {
                 //Sound Effect
                 MediaPlayer objMediaPlayer = MediaPlayer.create(getBaseContext(), R.raw.effect_btn_long);
                 objMediaPlayer.start();
+
+                //Check Answer
+                checkAnswer();
+
             }   // event
         });
+    }
+
+    private void checkAnswer() {
+
+        if (intRadio == 0) {
+
+            MyAlertDialog objMyAlertDialog = new MyAlertDialog();
+            objMyAlertDialog.showDialog(MainActivity.this);
+
+        } else {
+
+        }
+
     }
 
     private void initialWidget() {
