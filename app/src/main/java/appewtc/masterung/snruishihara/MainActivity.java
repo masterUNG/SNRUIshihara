@@ -66,7 +66,21 @@ public class MainActivity extends ActionBarActivity {
                 R.drawable.ishihara_09, R.drawable.ishihara_10};
         imvIshihara.setImageResource(intImage[intModel]);
 
+        //Change Choice
+        int intChoice[] = new int[]{R.array.time1, R.array.time2,
+                R.array.time3, R.array.time4,
+                R.array.time5, R.array.time6,
+                R.array.time7, R.array.time8,
+                R.array.time9, R.array.time10};
+
+        String strChoice[] = getResources().getStringArray(intChoice[intModel]);
+        radChoice1.setText(strChoice[0]);
+        radChoice2.setText(strChoice[1]);
+        radChoice3.setText(strChoice[2]);
+        radChoice4.setText(strChoice[3]);
+
     }
+
 
     private void radioController() {
         ragChoice.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
